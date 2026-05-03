@@ -1,0 +1,23 @@
+[
+  {
+    "id": "omaxe-studio-001",
+    "title": "Studio Apartment",
+    "location": "Omaxe ITC, Greater Noida",
+    "type": "Studio Apartment",
+    "price": "₹12,000/mo",
+    "mainPhoto": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80",
+    "photos": [
+      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80",
+      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80",
+      "https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800&q=80",
+      "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&q=80"
+    ],
+    "amenities": ["24/7 Security", "Power Backup", "Lift", "Parking", "Wifi Ready", "Modern Kitchen"],
+    "description": "Elegant studio apartment in the premium Omaxe ITC township of Greater Noida. Perfect for working professionals seeking a modern, hassle-free living space close to business hubs.",
+    "beds": "Studio",
+    "baths": 1,
+    "area": "420 sq ft",
+    "furnished": "Semi-Furnished",
+    "available": true
+  }
+]

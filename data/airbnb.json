@@ -1,0 +1,22 @@
+[
+  {
+    "id": "suite-placeholder-001",
+    "title": "Luxury Furnished Suite",
+    "location": "Greater Noida West",
+    "price": "₹2,500/night",
+    "minStay": "1 night",
+    "mainPhoto": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+    "photos": [
+      "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&q=80",
+      "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=800&q=80",
+      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80"
+    ],
+    "amenities": ["Fully Furnished", "Smart TV", "High-Speed Wifi", "AC", "Daily Housekeeping", "Kitchen Essentials", "24/7 Support"],
+    "description": "A premium fully-furnished suite available on short-term or Airbnb-style basis. Everything you need — just walk in with your suitcase.",
+    "beds": 1,
+    "baths": 1,
+    "area": "550 sq ft",
+    "comingSoon": false
+  }
+]

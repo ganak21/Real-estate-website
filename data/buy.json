@@ -1,1 +1,24 @@
-
+[
+  {
+    "id": "ithums-office-001",
+    "title": "Office & Shop Space",
+    "location": "Ithums Galleria Mall, Greater Noida",
+    "type": "Commercial",
+    "subtype": "Office / Retail Shop",
+    "price": "₹45,00,000",
+    "priceLabel": "Onwards",
+    "mainPhoto": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
+    "photos": [
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
+      "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80",
+      "https://images.unsplash.com/photo-1604328698692-f76ea9498e76?w=800&q=80",
+      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80"
+    ],
+    "amenities": ["High Footfall Location", "Ample Parking", "Central AC", "Power Backup", "24/7 Security", "Fire Safety"],
+    "description": "Prime commercial space in Ithums Galleria Mall — one of Greater Noida's most prominent retail and office destinations. Ideal for businesses, startups, and retail brands seeking maximum visibility.",
+    "area": "200 – 2000 sq ft",
+    "floors": "Multiple Options",
+    "possession": "Ready to Move",
+    "available": true
+  }
+]
