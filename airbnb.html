@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Short Stays — NestWise Realty</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav class="nav scrolled" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">N</span>
+        <span class="logo-text">NestWise<em>Realty</em></span>
+      </a>
+      <button class="burger" id="burger"><span></span><span></span><span></span></button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="properties.html">Properties</a></li>
+        <li><a href="airbnb.html" class="active">Short Stay</a></li>
+        <li><a href="why-us.html">Why Us</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero" style="margin-top: var(--nav-h);">
+    <div class="page-hero-bg">
+      <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1400&q=80" alt="Short Stay" />
+      <div class="page-hero-overlay"></div>
+    </div>
+    <div class="page-hero-content">
+      <div class="section-label">Temporary & Airbnb-Style</div>
+      <h1>Furnished Suites<br /><em>Short Stays</em></h1>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="airbnb-intro">
+    <div class="container">
+      <div class="section-label" style="text-align:center">Fully Furnished</div>
+      <h2 class="section-title" style="text-align:center;margin-bottom:20px">Stay Comfortably,<br />Even Temporarily</h2>
+      <p>Need a place for a week, a month, or a few nights? Our fully furnished suites are Airbnb-style accommodations with all the comforts of home — managed locally with 24/7 support from our team.</p>
+    </div>
+  </div>
+
+  <!-- SUITES -->
+  <section class="section">
+    <div class="container" id="suitesContainer">
+      <p style="color:#aaa;text-align:center">Loading suites…</p>
+    </div>
+  </section>
+
+  <!-- Gallery Modal -->
+  <div class="gallery-modal" id="galleryModal">
+    <button class="gallery-close" onclick="closeGallery()">✕</button>
+    <button class="gallery-nav prev" onclick="galleryPrev()">‹</button>
+    <img id="galleryMainImg" src="" alt="Gallery" />
+    <button class="gallery-nav next" onclick="galleryNext()">›</button>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <span class="logo-mark">N</span>
+            <span class="logo-text">NestWise<em>Realty</em></span>
+          </a>
+          <p>Your honest real estate partner in Greater Noida.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="properties.html">Properties</a></li>
+            <li><a href="airbnb.html">Short Stays</a></li>
+            <li><a href="why-us.html">Why Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Get in Touch</h4>
+          <p>📍 Greater Noida, UP</p>
+          <p>📞 +91 98XXX XXXXX</p>
+          <p>✉️ hello@nestwiserealty.in</p>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>© 2025 NestWise Realty. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    async function loadSuites() {
+      const container = document.getElementById('suitesContainer');
+      try {
+        const res = await fetch('data/airbnb.json');
+        const suites = await res.json();
+        container.innerHTML = suites.map(s => {
+          const amenities = (s.amenities || []).map(a => `<span class="amenity-tag">${a}</span>`).join('');
+          const thumbs = (s.photos || []).map((ph, i) =>
+            `<img src="${ph}" alt="photo ${i+1}" onclick="openGallery(${JSON.stringify(s.photos)}, ${i})" />`
+          ).join('');
+
+          return `
+            <div class="suite-card">
+              <div class="suite-layout">
+                <div class="suite-gallery">
+                  <img src="${s.mainPhoto}" alt="${s.title}" id="suiteMain_${s.id}" style="cursor:pointer" onclick="openGallery(${JSON.stringify(s.photos)}, 0)" />
+                  <div class="suite-gallery-strip">${thumbs}</div>
+                </div>
+                <div class="suite-info">
+                  <div class="section-label">Fully Furnished Suite</div>
+                  <h2>${s.title}</h2>
+                  <p class="suite-loc">📍 ${s.location}</p>
+                  <div class="suite-price">${s.price} <span>/ night · Min. ${s.minStay}</span></div>
+                  <p class="suite-desc">${s.description}</p>
+                  <div class="amenities-list" style="margin-bottom:32px">${amenities}</div>
+                  <div style="display:flex;gap:24px;font-size:14px;color:var(--muted);margin-bottom:32px">
+                    <span>🛏 ${s.beds} Bed</span>
+                    <span>🚿 ${s.baths} Bath</span>
+                    <span>📐 ${s.area}</span>
+                  </div>
+                  <a href="contact.html" class="btn btn-primary">Book / Enquire</a>
+                </div>
+              </div>
+            </div>`;
+        }).join('');
+      } catch(e) {
+        container.innerHTML = '<p style="color:#888;text-align:center">Could not load suites.</p>';
+      }
+    }
+
+    loadSuites();
+  </script>
+</body>
+</html>

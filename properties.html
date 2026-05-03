@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Properties — NestWise Realty</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav scrolled" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">N</span>
+        <span class="logo-text">NestWise<em>Realty</em></span>
+      </a>
+      <button class="burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="properties.html" class="active">Properties</a></li>
+        <li><a href="airbnb.html">Short Stay</a></li>
+        <li><a href="why-us.html">Why Us</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero" style="margin-top: var(--nav-h);">
+    <div class="page-hero-bg">
+      <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1400&q=80" alt="Properties" />
+      <div class="page-hero-overlay"></div>
+    </div>
+    <div class="page-hero-content">
+      <div class="section-label">Listings</div>
+      <h1>Our Properties</h1>
+    </div>
+  </div>
+
+  <!-- PROPERTIES PAGE -->
+  <main class="properties-page">
+    <div class="container">
+
+      <!-- RENT / PG SECTION -->
+      <div id="rent">
+        <div class="prop-section-title">
+          <span class="section-label" style="margin:0">🏠 Rent & PG</span>
+          <h2>Homes to Rent</h2>
+        </div>
+        <div class="props-grid" id="rentGrid">
+          <div class="prop-card" style="padding:32px;opacity:1;transform:none;display:flex;align-items:center;justify-content:center;color:#aaa;font-size:14px;">Loading…</div>
+        </div>
+      </div>
+
+      <!-- BUY / COMMERCIAL SECTION -->
+      <div id="buy" style="margin-top: 40px;">
+        <div class="prop-section-title">
+          <span class="section-label" style="margin:0">🏢 Buy & Commercial</span>
+          <h2>Spaces to Own</h2>
+        </div>
+        <div class="props-grid" id="buyGrid">
+          <div class="prop-card" style="padding:32px;opacity:1;transform:none;display:flex;align-items:center;justify-content:center;color:#aaa;font-size:14px;">Loading…</div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Gallery Modal -->
+  <div class="gallery-modal" id="galleryModal">
+    <button class="gallery-close" onclick="closeGallery()">✕</button>
+    <button class="gallery-nav prev" onclick="galleryPrev()">‹</button>
+    <img id="galleryMainImg" src="" alt="Gallery" />
+    <button class="gallery-nav next" onclick="galleryNext()">›</button>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <span class="logo-mark">N</span>
+            <span class="logo-text">NestWise<em>Realty</em></span>
+          </a>
+          <p>Your honest real estate partner in Greater Noida.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="properties.html">Properties</a></li>
+            <li><a href="airbnb.html">Short Stays</a></li>
+            <li><a href="why-us.html">Why Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Get in Touch</h4>
+          <p>📍 Greater Noida, UP</p>
+          <p>📞 +91 98XXX XXXXX</p>
+          <p>✉️ hello@nestwiserealty.in</p>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>© 2025 NestWise Realty. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    function buildPropCard(p, type) {
+      const badge = type === 'rent' ? 'Rent / PG' : (p.subtype || 'Commercial');
+      const detail = type === 'rent'
+        ? `<div style="display:flex;gap:20px;font-size:13px;color:var(--muted);margin-bottom:12px">
+            <span>🛏 ${p.beds}</span><span>🚿 ${p.baths} Bath</span><span>📐 ${p.area}</span><span>🪑 ${p.furnished}</span>
+           </div>`
+        : `<div style="display:flex;gap:20px;font-size:13px;color:var(--muted);margin-bottom:12px">
+            <span>📐 ${p.area}</span><span>🏗 ${p.floors || ''}</span><span>✅ ${p.possession || 'Available'}</span>
+           </div>`;
+
+      const amenities = (p.amenities || []).map(a =>
+        `<span class="amenity-tag">${a}</span>`
+      ).join('');
+
+      const thumbs = (p.photos || []).map((ph, i) =>
+        `<img src="${ph}" alt="photo ${i+1}" onclick="openGallery(${JSON.stringify(p.photos)}, ${i})" />`
+      ).join('');
+
+      return `
+        <div class="prop-card" style="cursor:default">
+          <div class="prop-img-wrap" style="cursor:pointer" onclick="openGallery(${JSON.stringify(p.photos)}, 0)">
+            <img src="${p.mainPhoto}" alt="${p.title}" loading="lazy" />
+            <span class="prop-badge">${badge}</span>
+          </div>
+          <div class="prop-body">
+            <h3>${p.title}</h3>
+            <p class="prop-loc">📍 ${p.location}</p>
+            ${detail}
+            <div class="amenities-list">${amenities}</div>
+            <p class="prop-desc">${p.description}</p>
+            <div class="prop-photos-strip">${thumbs}</div>
+            <div class="prop-footer" style="margin-top:20px">
+              <span class="prop-price">${p.price} <small style="font-size:0.5em;font-family:var(--font-body);color:var(--muted)">${p.priceLabel||''}</small></span>
+              <a href="contact.html" class="btn btn-primary" style="padding:10px 20px;font-size:11px">Enquire Now</a>
+            </div>
+          </div>
+        </div>`;
+    }
+
+    async function loadProps() {
+      try {
+        const rentRes = await fetch('data/rent-pg.json');
+        const rentData = await rentRes.json();
+        document.getElementById('rentGrid').innerHTML = rentData.map(p => buildPropCard(p,'rent')).join('') || '<p>No listings yet.</p>';
+      } catch(e) {
+        document.getElementById('rentGrid').innerHTML = '<p style="color:#888;padding:32px">Could not load listings.</p>';
+      }
+      try {
+        const buyRes = await fetch('data/buy.json');
+        const buyData = await buyRes.json();
+        document.getElementById('buyGrid').innerHTML = buyData.map(p => buildPropCard(p,'buy')).join('') || '<p>No listings yet.</p>';
+      } catch(e) {
+        document.getElementById('buyGrid').innerHTML = '<p style="color:#888;padding:32px">Could not load listings.</p>';
+      }
+    }
+    loadProps();
+  </script>
+</body>
+</html>

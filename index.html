@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NestWise Realty — Greater Noida</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">N</span>
+        <span class="logo-text">NestWise<em>Realty</em></span>
+      </a>
+      <button class="burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="properties.html">Properties</a></li>
+        <li><a href="airbnb.html">Short Stay</a></li>
+        <li><a href="why-us.html">Why Us</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1600&q=80" alt="Hero" class="hero-img" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Greater Noida's Trusted Real Estate Partner</p>
+      <h1 class="hero-title">Find Your<br /><em>Perfect Space</em></h1>
+      <p class="hero-sub">Rent · Buy · PG · Short Stays — honest pricing, zero hidden fees.</p>
+      <div class="hero-actions">
+        <a href="properties.html" class="btn btn-primary">Explore Properties</a>
+        <a href="contact.html" class="btn btn-ghost">Talk to Us</a>
+      </div>
+    </div>
+    <div class="hero-scroll">Scroll</div>
+  </section>
+
+  <!-- WHAT WE DO -->
+  <section class="services section">
+    <div class="container">
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">One Partner,<br />Every Need</h2>
+      <div class="services-grid">
+        <a href="properties.html#rent" class="service-card">
+          <div class="service-icon">🏠</div>
+          <h3>Rent & PG</h3>
+          <p>Curated rental apartments and PG accommodations for students, professionals and families.</p>
+          <span class="service-link">View Rentals →</span>
+        </a>
+        <a href="properties.html#buy" class="service-card">
+          <div class="service-icon">🏢</div>
+          <h3>Buy Property</h3>
+          <p>Office spaces, shops, and residential units at prime Greater Noida locations.</p>
+          <span class="service-link">View Listings →</span>
+        </a>
+        <a href="airbnb.html" class="service-card">
+          <div class="service-icon">✈️</div>
+          <h3>Short Stays</h3>
+          <p>Fully furnished suites on a nightly or weekly basis — Airbnb-style comfort, local expertise.</p>
+          <span class="service-link">View Suites →</span>
+        </a>
+        <a href="contact.html" class="service-card">
+          <div class="service-icon">🔍</div>
+          <h3>Find For Me</h3>
+          <p>Tell us what you need and we'll find the perfect match — no endless searching.</p>
+          <span class="service-link">Get Started →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US STRIP -->
+  <section class="why-strip">
+    <div class="container">
+      <div class="why-strip-inner">
+        <div class="why-strip-text">
+          <div class="section-label light">Why Choose Us</div>
+          <h2>Not Your Conventional<br />Dealer.</h2>
+          <p>Traditional brokers charge a full month's rent — sometimes two. We charge just <strong>25% of the first month's rent</strong>. That's it. Transparent, fair, and on your side.</p>
+          <a href="why-us.html" class="btn btn-primary">Our Promise</a>
+        </div>
+        <div class="why-strip-stats">
+          <div class="stat-item">
+            <span class="stat-num">25%</span>
+            <span class="stat-label">of 1st rent only</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">0</span>
+            <span class="stat-label">Hidden Fees</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">3</span>
+            <span class="stat-label">Property Types</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">∞</span>
+            <span class="stat-label">Support</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PROPERTIES -->
+  <section class="featured section">
+    <div class="container">
+      <div class="section-label">Featured</div>
+      <h2 class="section-title">Handpicked Properties</h2>
+      <div class="featured-grid" id="featuredGrid">
+        <!-- Loaded by JS -->
+      </div>
+      <div class="featured-cta">
+        <a href="properties.html" class="btn btn-outline">View All Properties</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="testimonial-section section">
+    <div class="container">
+      <blockquote class="big-quote">
+        <p>"NestWise found us the perfect office space in Ithums Galleria within a week — and charged us just 25% of the first month's rent. Couldn't believe it was that easy."</p>
+        <cite>— Rahul S., Entrepreneur, Greater Noida</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <span class="logo-mark">N</span>
+            <span class="logo-text">NestWise<em>Realty</em></span>
+          </a>
+          <p>Your honest real estate partner in Greater Noida. Rent, Buy, PG or Short Stay — we've got you.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="properties.html">Properties</a></li>
+            <li><a href="airbnb.html">Short Stays</a></li>
+            <li><a href="why-us.html">Why Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Get in Touch</h4>
+          <p>📍 Greater Noida, UP</p>
+          <p>📞 +91 98XXX XXXXX</p>
+          <p>✉️ hello@nestwiserealty.in</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 NestWise Realty. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Load featured properties
+    async function loadFeatured() {
+      const grid = document.getElementById('featuredGrid');
+      try {
+        const [rentRes, buyRes] = await Promise.all([
+          fetch('data/rent-pg.json'),
+          fetch('data/buy.json')
+        ]);
+        const rentData = await rentRes.json();
+        const buyData = await buyRes.json();
+        const all = [...rentData.slice(0,1), ...buyData.slice(0,1)];
+        grid.innerHTML = all.map(p => `
+          <div class="prop-card" onclick="location.href='properties.html'">
+            <div class="prop-img-wrap">
+              <img src="${p.mainPhoto}" alt="${p.title}" loading="lazy" />
+              <span class="prop-badge">${p.type || p.subtype || 'Property'}</span>
+            </div>
+            <div class="prop-body">
+              <h3>${p.title}</h3>
+              <p class="prop-loc">📍 ${p.location}</p>
+              <p class="prop-desc">${p.description.substring(0,100)}…</p>
+              <div class="prop-footer">
+                <span class="prop-price">${p.price} ${p.priceLabel||''}</span>
+                <span class="prop-more">View →</span>
+              </div>
+            </div>
+          </div>
+        `).join('');
+      } catch(e) {
+        grid.innerHTML = '<p style="color:#888">Could not load properties.</p>';
+      }
+    }
+    loadFeatured();
+  </script>
+</body>
+</html>
